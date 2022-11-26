@@ -6,7 +6,8 @@ const rockButton = document.querySelector('.rock')
 const paperButton = document.querySelector('.paper')
 const scissorsButton = document.querySelector('.scissors')  
 const outcomeDiv = document.querySelector('.outcome');
-const scoreRecord = document.querySelector('.score');
+const userRecord = document.querySelector('.user-score');
+const computerRecord = document.querySelector('.computer-score');
 
 const computerPlay = () => {
     let compChoice = Math.floor(Math.random() * 3 );
@@ -89,6 +90,11 @@ const playRound = (playerSelection, computerSelection) => {
       const h3 = document.createElement("h3");
       h3.innerText  = "You won!";
       mainContainer.appendChild(h3)
+      disableButton();
+      const newButton= document.createElement("button");
+      newButton.innerText ="New Game";
+      mainContainer.appendChild(newButton);
+      
       
 
 
@@ -99,11 +105,23 @@ const playRound = (playerSelection, computerSelection) => {
       const h3 = document.createElement("h3");
       h3.innerText  = "Computer Won";
       mainContainer.appendChild(h3)
+      disableButton();
+      const newButton= document.createElement("button");
+      newButton.innerText ="New Game";
+      mainContainer.appendChild(newButton);
+      
 
     }
 
 
     }
+
+  const disableButton = () =>{
+    rockButton.disabled= true
+    paperButton.disabled= true
+    scissorsButton.disabled= true
+
+  }
   
    
 
@@ -113,6 +131,8 @@ const playRound = (playerSelection, computerSelection) => {
     const computerSelection = computerPlay();
     playRound(playerSelection, computerSelection);
     getWinner(userScore,computerScore);
+    userRecord.innerText = `Player Score : ${userScore}`;
+    computerRecord.innerText = `Computer Score: ${computerScore}`;
    
   })
 
@@ -121,7 +141,10 @@ const playRound = (playerSelection, computerSelection) => {
     const playerSelection = 'paper';
     const computerSelection = computerPlay();
     playRound(playerSelection, computerSelection);
-    
+    getWinner(userScore,computerScore);
+    userRecord.innerText = `Player Score : ${userScore}`;
+    computerRecord.innerText = `Computer Score: ${computerScore}`;
+   
   })
 
 
@@ -129,7 +152,10 @@ const playRound = (playerSelection, computerSelection) => {
     const playerSelection = 'scissors';
     const computerSelection = computerPlay();
     playRound(playerSelection, computerSelection);
-    
+    getWinner(userScore,computerScore);
+    userRecord.innerText = `Player Score : ${userScore}`;
+    computerRecord.innerText = `Computer Score: ${computerScore}`;
+   
   })
 
 
