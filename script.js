@@ -106,9 +106,6 @@ const playRound = (playerSelection, computerSelection) => {
       h3.innerText  = "Computer Won";
       mainContainer.appendChild(h3)
       disableButton();
-      const newButton= document.createElement("button");
-      newButton.innerText ="New Game";
-      mainContainer.appendChild(newButton);
       
 
     }
